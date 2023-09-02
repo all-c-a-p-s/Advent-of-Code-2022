@@ -1,6 +1,6 @@
 package main
 
-// you still beed to be able to read the letters - this code doesn't actually recognise them
+// you still need to be able to read the letters - this code doesn't actually recognise them
 
 import (
 	"fmt"
