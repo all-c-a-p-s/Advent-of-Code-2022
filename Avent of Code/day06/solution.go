@@ -11,13 +11,13 @@ func check(e error){
 	}
 }
 
-func read_file() string {
+func readFile() string {
 	file, err := os.ReadFile("input.txt")
 	check(err)
 	return string(file)
 }
 
-func are_different(signal string, letter int) bool {
+func areDifferent(signal string, letter int) bool {
 	for i := 0;i < 14;i++ {
 		for j := 0;j < 14;j++{
 			if i == j {//otherwise letters at the same index will be compared
@@ -31,9 +31,9 @@ func are_different(signal string, letter int) bool {
 	return true
 }
 
-func find_marker(signal string) int {
+func findMarker(signal string) int {
 	for i := 14;i < len(signal);i++{
-		if are_different(signal, i) {
+		if areDifferent(signal, i) {
 			return i + 1//indexing starts at 0
 		}
 	}
@@ -41,6 +41,6 @@ func find_marker(signal string) int {
 }
 
 func main(){
-	input_string := read_file()
-	fmt.Print(find_marker(input_string))
+	input := readFile()
+	fmt.Print(findMarker(input))
 }
