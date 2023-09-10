@@ -42,5 +42,5 @@ func find_marker(signal string) int {
 
 func main(){
 	input_string := read_file()
-	fmt.Printf("%d", find_marker(input_string))
+	fmt.Print(find_marker(input_string))
 }
