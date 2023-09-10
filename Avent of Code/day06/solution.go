@@ -1,8 +1,11 @@
 package main
+//alternate solution using hashset (~1.8x slower) on github
+//use "go run ." to run this file to test both
 
 import (
 	"fmt"
 	"os"
+	"time"
 )
 
 func check(e error){
@@ -42,5 +45,15 @@ func findMarker(signal string) int {
 
 func main(){
 	input := readFile()
-	fmt.Print(findMarker(input))
+
+	start := time.Now()	
+	fmt.Printf("%d loop through string: ", findMarker(input))
+	duration := time.Since(start)
+	fmt.Print(duration)
+
+	
+	start2 := time.Now()
+	fmt.Printf("\n%d hashset: ", findMarker2(input))
+	end := time.Since(start2)
+	fmt.Print(end)
 }
