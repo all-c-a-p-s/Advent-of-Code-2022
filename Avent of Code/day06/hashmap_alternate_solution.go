@@ -1,3 +1,4 @@
+//More concise code using hashmap to measure unique elements, but this is ~6 times slower (i think because of heap allocation to hashmap)
 package main
 
 import (
