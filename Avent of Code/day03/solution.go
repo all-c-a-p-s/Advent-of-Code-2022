@@ -23,9 +23,7 @@ func findDuplicate(items, items2, items3 string) rune {
 		}
 	}
 
-	fmt.Println("Could not find duplicate")
-	return '#'
-
+	panic("Could not find duplicate")
 }
 
 func Priority(item rune) int {
