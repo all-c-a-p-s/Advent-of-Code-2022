@@ -12,13 +12,13 @@ func check(e error){
 	}
 }
 
-func read_file() string {
+func readFile() string {
 	file, err := os.ReadFile("input.txt")
 	check(err)
 	return string(file)
 }
 
-func find_marker(signal string) int {
+func findMarker(signal string) int {
 
 	for i := 14;i < len(signal);i++{
 		hashSet := map[byte]int{} //second data type doesn't really matter
@@ -36,6 +36,6 @@ func find_marker(signal string) int {
 }
 
 func main(){
-	input_string := read_file()
-	fmt.Println(find_marker(input_string))
+	input_string := readFile()
+	fmt.Println(findMarker(input_string))
 }
