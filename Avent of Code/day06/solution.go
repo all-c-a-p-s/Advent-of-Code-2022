@@ -37,7 +37,7 @@ func find_marker(signal string) int {
 			return i + 1//indexing starts at 0
 		}
 	}
-	return 0
+	panic("Could not find marker")
 }
 
 func main(){
