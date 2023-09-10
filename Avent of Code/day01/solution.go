@@ -6,58 +6,41 @@ import (
 	"os"
 	"log"
 	"strconv"
+	"sort"
 )
+
+func check(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
+}
 
 func main(){
 
 	input, err := os.Open("input.txt")
-
-	if err != nil {
-		log.Fatal(err)
-	}
+	check(err)
+	defer input.Close()
 
 	scanner := bufio.NewScanner(input)
 
-	defer input.Close()
-
-	highestCalories := 0
-	secondCalories := 0
-	thirdCalories := 0
-	elfCalories := 0//calories of current elf
+	elves := []int{}
+	elfCalories := 0
 
 	for scanner.Scan() {
-
-		line := scanner.Text()
-
-		if line == "" {
-			if elfCalories > highestCalories {//if it is equal it will pass next conidition an become secondCalories
-				thirdCalories = secondCalories
-				secondCalories = highestCalories
-				highestCalories = elfCalories
-	
-			} else if elfCalories > secondCalories {
-				thirdCalories = secondCalories
-				secondCalories = elfCalories
-	
-			} else if elfCalories > thirdCalories {
-				thirdCalories = elfCalories
-			}
+		if scanner.Text() == "" {
+			elves = append(elves, elfCalories) //append current elf to elves{}
 			elfCalories = 0
 			continue
-		}
-
-		lineCalories, e := strconv.Atoi(line)
-
-		if e != nil {
-			log.Fatal(e)
-		}
-
-		elfCalories += lineCalories
+		} 
+		calories, err := strconv.Atoi(scanner.Text())
+		check(err)
 		
-		
-			
-
+		elfCalories += calories
 	}
 
-	fmt.Printf("highest: %d, second: %d, third: %d", highestCalories, secondCalories, thirdCalories)
+	sort.Slice(elves, func(i, j int) bool{ //sort by descending size
+		return elves[i] > elves[j]
+	})
+
+	fmt.Println(elves[0] + elves[1] + elves[2]) //sum of first 3
 }
