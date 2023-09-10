@@ -37,7 +37,6 @@ func move(numToMove int, stackFrom, stackTo *[]string) {
 	*stackTo = append(*stackTo, crate)
 	
 	move(numToMove - 1, stackFrom, stackTo)//recursive call, exits when numToMove is 0
-
 }
 
 func parseInstruction(instruction string, crateStacks *[][]string) {
@@ -80,8 +79,7 @@ func readCrates() [][]string {
 
 	}
 
-	return crateStacks
-	
+	return crateStacks	
 }
 
 func main() {
