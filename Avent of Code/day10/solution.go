@@ -1,7 +1,5 @@
 package main
 
-// you still beed to be able to read the letters - this code doesn't actually recognise them
-
 import (
 	"fmt"
 	"os"
@@ -17,9 +15,9 @@ func check(err error) {
 	}
 }
 
-func updateDisplay(clockTicks, x int) {
+func updateDisplay(clockTicks, x int) { //doesn't actually recognise the letter, you need to be able to read them
 
-	if clockTicks % 40 == 0 {
+	if clockTicks % 40 == 0 {//new row
 		fmt.Println()
 	}
 
@@ -62,5 +60,3 @@ func main() {
 		}
 	}
 }
-
-
