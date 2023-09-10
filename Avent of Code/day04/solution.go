@@ -46,7 +46,6 @@ func Overlap(pairs string) bool {
 	}
 
 	return false
-
 }
 
 func main(){
@@ -61,9 +60,7 @@ func main(){
 		if Overlap(scanner.Text()) {
 			total ++
 		}
-
 	}
 
 	fmt.Println(total)
-
 }
