@@ -36,6 +36,6 @@ func findMarker(signal string) int {
 }
 
 func main(){
-	input_string := readFile()
-	fmt.Println(findMarker(input_string))
+	input := readFile()
+	fmt.Println(findMarker(input))
 }
